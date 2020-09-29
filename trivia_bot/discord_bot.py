@@ -61,6 +61,9 @@ class DiscordBot(object):
     def nickmention(self):
         return"<@!%d>" % self.client.user.id
 
+    def name(self):
+        return self.client.user.name
+
     def run(self):
         self.client.run(self.token)
 

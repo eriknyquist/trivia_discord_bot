@@ -30,8 +30,13 @@ class TriviaSession(object):
         self.trivia = None
         self.responses = []
 
+        if hasattr(channel, 'guild'):
+            self.guild_id = channel.guild.id
+        else:
+            self.guild_id = "DM_"
+
     def session_id(self):
-        return "%d:%d" % (self.channel.guild.id, self.channel.id)
+        return "%s:%s" % (self.guild_id, self.channel.id)
 
     def __str__(self):
         return self.session_id()
