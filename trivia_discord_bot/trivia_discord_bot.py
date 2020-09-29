@@ -1,8 +1,8 @@
 import logging
 
-from trivia_bot.trivia import TriviaSession
-from trivia_bot.discord_bot import DiscordBot, MessageResponse
-from trivia_bot.command_processor import build_command_processor
+from trivia_discord_bot.trivia import TriviaSession
+from trivia_discord_bot.discord_bot import DiscordBot, MessageResponse
+from trivia_discord_bot.command_processor import build_command_processor
 
 
 logger = logging.getLogger(__name__)

@@ -4,8 +4,8 @@ import random
 import os
 import logging
 
-from trivia_bot.trivia_discord_bot import TriviaDiscordBot
-from trivia_bot.config import BotConfig
+from trivia_discord_bot.trivia_discord_bot import TriviaDiscordBot
+from trivia_discord_bot.config import BotConfig
 
 
 logger = logging.getLogger(__name__)

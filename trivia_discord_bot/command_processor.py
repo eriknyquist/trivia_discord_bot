@@ -1,8 +1,8 @@
 import time
 import threading
 
-from trivia_bot.trivia import TriviaSession
-from trivia_bot.opentdb_trivia import OpenTDBTriviaDB
+from trivia_discord_bot.trivia import TriviaSession
+from trivia_discord_bot.opentdb_trivia import OpenTDBTriviaDB
 
 active_sessions = {}
 trivia_db = OpenTDBTriviaDB()

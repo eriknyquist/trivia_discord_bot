@@ -3,7 +3,7 @@ import discord
 import asyncio
 import logging
 
-from trivia_bot.command_processor import CommandProcessor, trivia_bot_command_list
+from trivia_discord_bot.command_processor import CommandProcessor, trivia_bot_command_list
 
 
 logger = logging.getLogger(__name__)

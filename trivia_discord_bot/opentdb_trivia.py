@@ -2,7 +2,7 @@ import requests
 import html
 import logging
 
-from trivia_bot.trivia import TriviaDB, TriviaQuestion
+from trivia_discord_bot.trivia import TriviaDB, TriviaQuestion
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
