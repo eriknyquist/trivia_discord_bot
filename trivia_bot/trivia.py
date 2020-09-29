@@ -11,6 +11,9 @@ class TriviaQuestion(object):
         self.correct_answer = correct_answer
         self.category = category
 
+    def correct_answer_index(self):
+        return self.answers.index(self.correct_answer)
+
 
 class TriviaDB(object):
     def __init__(self):
@@ -21,10 +24,17 @@ class TriviaDB(object):
 
 
 class TriviaSession(object):
-    def __init__(self, guild_id, channel_id):
-        self.guild_id = guild_id
-        self.channel_id = channel_id
+    def __init__(self, channel):
+        self.channel = channel
+        self.thread = None
+        self.trivia = None
         self.responses = []
 
+    def session_id(self):
+        return "%d:%d" % (self.channel.guild.id, self.channel.id)
+
     def __str__(self):
-        return "%d:%d" % (self.guild_id, self.channel_id)
+        return self.session_id()
+
+    def __repr__(self):
+        return self.session_id()
