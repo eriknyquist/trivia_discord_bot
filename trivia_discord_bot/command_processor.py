@@ -166,6 +166,7 @@ def cmd_trivia(proc, session, config, author, args):
         return "Chill out bro, there's already a trivia question in progress!"
 
     q = trivia_db.get_question()
+
     answers = "\n".join(["```%d. %s```" % (i + 1, q.answers[i]) for i in range(len(q.answers))])
 
     session.trivia = q

@@ -1,6 +1,8 @@
 import requests
 import html
 import logging
+import random
+import time
 
 from trivia_discord_bot.trivia import TriviaDB, TriviaQuestion
 
@@ -10,7 +12,7 @@ logger.setLevel(logging.INFO)
 
 class OpenTDBTriviaDB(TriviaDB):
     def __init__(self):
-        pass
+        random.seed(time.time())
 
     def get_question(self):
         dburl = "https://opentdb.com/api.php?amount=1"
@@ -18,15 +20,19 @@ class OpenTDBTriviaDB(TriviaDB):
         attrs = resp.json()
 
         q = attrs["results"][0]
-        
+
+        correct_answer = html.unescape(q["correct_answer"])
+
         answers = (
-            [html.unescape(q["correct_answer"])] + 
+            [correct_answer] +
             [html.unescape(x) for x in q["incorrect_answers"]]
         )
+
+        random.shuffle(answers)
 
         newq = TriviaQuestion(html.unescape(q["category"]),
                               html.unescape(q["question"]),
                               answers,
-                              answers[0])
+                              correct_answer)
 
         return newq
