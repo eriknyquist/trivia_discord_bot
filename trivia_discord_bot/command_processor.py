@@ -217,7 +217,7 @@ def message_handler(proc, session, config, author, text):
     except:
         return "%s Umm... '%s' is not a number" % (author.mention, field)
 
-    if answer > len(session_id):
+    if answer > len(session.trivia.answers):
         return ("%s '%d' is not a valid answer, please provide a number between 1-%d" %
                 (author.mention, answer, len(session.trivia.answers)))
 
